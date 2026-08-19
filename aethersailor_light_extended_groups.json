@@ -1,954 +1,645 @@
-{
-  "template": {
-    "name": "Aethersailor_light_extended",
-    "version": "2.0",
-    "description": "基于实际订阅节点分布优化的Sub-Store模板",
-    "total_nodes": 1346,
-    "match_rate": "98.7%"
+[
+  {
+    "name": "🚀 节点切换",
+    "type": "select",
+    "filter": "",
+    "nodes": ["♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇹🇼 台湾节点", "🇺🇸 美国节点", "🇩🇪 德国节点", "🇬🇧 英国节点", "🇫🇷 法国节点", "🇳🇱 荷兰节点", "🇨🇦 加拿大节点", "🇦🇺 澳洲节点", "🇮🇳 印度节点", "🇦🇪 迪拜节点", "🇲🇽 墨西哥节点", "🇪🇸 西班牙节点", "🇧🇷 巴西节点", "🇱🇺 卢森堡节点", "🇷🇴 罗马尼亚节点", "🇷🇺 俄罗斯节点", "🇮🇪 爱尔兰节点", "🇹🇭 泰国节点", "🇵🇱 波兰节点", "🇫🇮 芬兰节点", "🇨🇭 瑞士节点", "🇸🇪 瑞典节点", "🇻🇳 越南节点", "🇹🇷 土耳其节点", "🇨🇿 捷克节点", "🇦🇹 奥地利节点", "🇮🇹 意大利节点", "🇪🇪 爱沙尼亚节点", "🇨🇴 哥伦比亚节点", "🇱🇹 立陶宛节点", "🇮🇩 印尼节点", "🇵🇹 葡萄牙节点", "🇵🇰 巴基斯坦节点", "🇦🇱 阿尔巴尼亚节点", "🇧🇩 孟加拉节点", "🇸🇨 塞舌尔节点", "🇸🇦 沙特节点", "🇧🇬 保加利亚节点", "🇻🇪 委内瑞拉节点", "🇳🇴 挪威节点", "🇻🇬 维尔京节点", "🇬🇹 危地马拉节点", "🇪🇨 厄瓜多尔节点", "🇰🇿 哈萨克斯坦节点", "🇩🇴 多米尼加节点", "🇨🇱 智利节点", "🇲🇲 缅甸节点", "🌐 其他节点"]
   },
-  "proxy_groups": [
-    {
-      "name": "🚀 节点切换",
-      "type": "select",
-      "description": "主选择组",
-      "order": 1
-    },
-    {
-      "name": "♻️ 自动选择",
-      "type": "url-test",
-      "description": "自动选择延迟最低节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": ""
-      },
-      "order": 2
-    },
-    {
-      "name": "🎯 全球直连",
-      "type": "select",
-      "description": "直连模式",
-      "order": 3
-    },
-    {
-      "name": "🇮🇳 印度节点",
-      "type": "url-test",
-      "description": "印度地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(印度|🇮🇳|IN¹|IN²|IND|India|孟买|Mumbai)"
-      },
-      "node_count": 3,
-      "order": 4
-    },
-    {
-      "name": "🇺🇸 美国节点",
-      "type": "url-test",
-      "description": "美国地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(美|🇺🇸|USA|United\\s?States|洛杉矶|Phoenix|凤凰城|圣何塞|硅谷|西雅图|纽约|芝加哥|达拉斯|亚特兰大|JFK|LAX|SFO|SEA|DFW|ORD|IAD|US¹|US²|US⁻)"
-      },
-      "node_count": 243,
-      "order": 5
-    },
-    {
-      "name": "🇳🇱 荷兰节点",
-      "type": "url-test",
-      "description": "荷兰地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(荷兰|🇳🇱|NLD|Netherlands|阿姆斯特丹|AMS|NL¹|NL²)"
-      },
-      "node_count": 147,
-      "order": 6
-    },
-    {
-      "name": "🇫🇷 法国节点",
-      "type": "url-test",
-      "description": "法国地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(法国|🇫🇷|FRA|France|CDG|FR¹|FR²)"
-      },
-      "node_count": 137,
-      "order": 7
-    },
-    {
-      "name": "🇷🇴 罗马尼亚节点",
-      "type": "url-test",
-      "description": "罗马尼亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(罗马尼亚|🇷🇴|ROU|Romania|Bucharest|RO¹|RO²)"
-      },
-      "node_count": 129,
-      "order": 8
-    },
-    {
-      "name": "🇯🇵 日本节点",
-      "type": "url-test",
-      "description": "日本地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(日|🇯🇵|JPN|Japan|东京|大阪|川日|泉日|沪日|深日|埼玉|关西|NRT|HND|KIX|TYO|OSA|JP¹|JP²)"
-      },
-      "node_count": 116,
-      "order": 9
-    },
-    {
-      "name": "🇬🇧 英国节点",
-      "type": "url-test",
-      "description": "英国地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(英|🇬🇧|GBR|Britain|United\\s?Kingdom|伦敦|Manchester|LHR|GB¹|GB²)"
-      },
-      "node_count": 67,
-      "order": 10
-    },
-    {
-      "name": "🇰🇷 韩国节点",
-      "type": "url-test",
-      "description": "韩国地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(韩|🇰🇷|KOR|Korea|首尔|春川|ICN|KR¹|KR²)"
-      },
-      "node_count": 66,
-      "order": 11
-    },
-    {
-      "name": "🇸🇬 新加坡节点",
-      "type": "url-test",
-      "description": "新加坡地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(新加坡|🇸🇬|SGA|SIN|狮城|坡|AWS|SG¹|SG²)"
-      },
-      "node_count": 61,
-      "order": 12
-    },
-    {
-      "name": "🇭🇰 港澳节点",
-      "type": "url-test",
-      "description": "香港地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(香港|🇭🇰|HKG|HKT|Hong\\s?Kong|Kowloon|深港|HK¹|HK²)"
-      },
-      "node_count": 51,
-      "order": 13
-    },
-    {
-      "name": "🇩🇪 德国节点",
-      "type": "url-test",
-      "description": "德国地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(德国|🇩🇪|DEU|Germany|MUC|DE¹|DE²)"
-      },
-      "node_count": 53,
-      "order": 14
-    },
-    {
-      "name": "🇷🇺 俄罗斯节点",
-      "type": "url-test",
-      "description": "俄罗斯地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(俄罗斯|🇷🇺|RUS|Russia|莫斯科|圣彼得堡|RU¹|RU²)"
-      },
-      "node_count": 38,
-      "order": 15
-    },
-    {
-      "name": "🇹🇼 台湾节点",
-      "type": "url-test",
-      "description": "台湾地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(台|🇹🇼|🇼🇸|TWN|TPE|Taiwan|ROC|新北|彰化|推特专线|Google\\s?play|TW¹)"
-      },
-      "node_count": 25,
-      "order": 16
-    },
-    {
-      "name": "🇹🇭 泰国节点",
-      "type": "url-test",
-      "description": "泰国地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(泰国|🇹🇭|THA|Thailand|曼谷|TH¹|TH²)"
-      },
-      "node_count": 19,
-      "order": 17
-    },
-    {
-      "name": "🇫🇮 芬兰节点",
-      "type": "url-test",
-      "description": "芬兰地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(芬兰|🇫🇮|FIN|Finland|赫尔辛基|FI¹|FI²)"
-      },
-      "node_count": 13,
-      "order": 18
-    },
-    {
-      "name": "🇮🇪 爱尔兰节点",
-      "type": "url-test",
-      "description": "爱尔兰地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(爱尔兰|🇮🇪|IRL|Ireland|都柏林|IE¹|IE²)"
-      },
-      "node_count": 12,
-      "order": 19
-    },
-    {
-      "name": "🇧🇷 巴西节点",
-      "type": "url-test",
-      "description": "巴西地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(巴西|🇧🇷|BRA|Brazil|圣保罗|São\\s?Paulo|BR¹|BR²)"
-      },
-      "node_count": 12,
-      "order": 20
-    },
-    {
-      "name": "🇨🇦 加拿大节点",
-      "type": "url-test",
-      "description": "加拿大地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(加拿大|🇨🇦|CAN|Canada|温哥华|蒙特利尔|渥太华|YVR|YYZ|CA¹)"
-      },
-      "node_count": 9,
-      "order": 21
-    },
-    {
-      "name": "🇨🇭 瑞士节点",
-      "type": "url-test",
-      "description": "瑞士地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(瑞士|🇨🇭|CHE|Switzerland|苏黎世|CH¹)"
-      },
-      "node_count": 9,
-      "order": 22
-    },
-    {
-      "name": "🇱🇺 卢森堡节点",
-      "type": "url-test",
-      "description": "卢森堡地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(卢森堡|🇱🇺|LUX|Luxembourg|LU¹|LU²)"
-      },
-      "node_count": 8,
-      "order": 23
-    },
-    {
-      "name": "🇦🇪 迪拜节点",
-      "type": "url-test",
-      "description": "阿联酋/迪拜地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(迪拜|🇦🇪|UAE|DXB|阿联酋|AE¹)"
-      },
-      "node_count": 8,
-      "order": 24
-    },
-    {
-      "name": "🇵🇱 波兰节点",
-      "type": "url-test",
-      "description": "波兰地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(波兰|🇵🇱|POL|Poland|华沙|PL¹)"
-      },
-      "node_count": 6,
-      "order": 25
-    },
-    {
-      "name": "🇸🇪 瑞典节点",
-      "type": "url-test",
-      "description": "瑞典地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(瑞典|🇸🇪|SWE|Sweden|斯德哥尔摩|SE¹)"
-      },
-      "node_count": 6,
-      "order": 26
-    },
-    {
-      "name": "🇲🇽 墨西哥节点",
-      "type": "url-test",
-      "description": "墨西哥地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(墨西哥|🇲🇽|MEX|Mexico|墨西哥城|MX¹)"
-      },
-      "node_count": 6,
-      "order": 27
-    },
-    {
-      "name": "🇪🇸 西班牙节点",
-      "type": "url-test",
-      "description": "西班牙地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(西班牙|🇪🇸|ESP|Spain|马德里|Madrid|ES¹)"
-      },
-      "node_count": 4,
-      "order": 28
-    },
-    {
-      "name": "🇹🇷 土耳其节点",
-      "type": "url-test",
-      "description": "土耳其地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(土耳其|🇹🇷|TUR|Turkey|伊斯坦布尔|TR¹)"
-      },
-      "node_count": 4,
-      "order": 29
-    },
-    {
-      "name": "🇻🇳 越南节点",
-      "type": "url-test",
-      "description": "越南地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(越南|🇻🇳|VNM|Vietnam|河内|胡志明|VN¹|VN²)"
-      },
-      "node_count": 3,
-      "order": 30
-    },
-    {
-      "name": "🇦🇺 澳洲节点",
-      "type": "url-test",
-      "description": "澳大利亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(澳|🇦🇺|AUS|Australia|悉尼|墨尔本|Sydney|Melbourne|AU¹)"
-      },
-      "node_count": 2,
-      "order": 31
-    },
-    {
-      "name": "🇨🇿 捷克节点",
-      "type": "url-test",
-      "description": "捷克地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(捷克|🇨🇿|CZE|Czech|布拉格|CZ¹)"
-      },
-      "node_count": 1,
-      "order": 32
-    },
-    {
-      "name": "🇦🇹 奥地利节点",
-      "type": "url-test",
-      "description": "奥地利地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(奥地利|🇦🇹|AT|维也纳|AT¹|AT²)"
-      },
-      "node_count": 6,
-      "order": 33
-    },
-    {
-      "name": "🇮🇹 意大利节点",
-      "type": "url-test",
-      "description": "意大利地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(意大利|🇮🇹|IT|罗马|米兰|IT¹|IT²)"
-      },
-      "node_count": 4,
-      "order": 34
-    },
-    {
-      "name": "🇪🇪 爱沙尼亚节点",
-      "type": "url-test",
-      "description": "爱沙尼亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(爱沙尼亚|🇪🇪|EE|塔林|EE¹|EE²)"
-      },
-      "node_count": 7,
-      "order": 35
-    },
-    {
-      "name": "🇨🇴 哥伦比亚节点",
-      "type": "url-test",
-      "description": "哥伦比亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(哥伦比亚|🇨🇴|CO|波哥大|CO¹|CO²)"
-      },
-      "node_count": 6,
-      "order": 36
-    },
-    {
-      "name": "🇱🇹 立陶宛节点",
-      "type": "url-test",
-      "description": "立陶宛地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(立陶宛|🇱🇹|LT|维尔纽斯|LT¹|LT²)"
-      },
-      "node_count": 4,
-      "order": 37
-    },
-    {
-      "name": "🇮🇩 印尼节点",
-      "type": "url-test",
-      "description": "印度尼西亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(印尼|印度尼西亚|🇮🇩|ID|雅加达|ID¹|ID²)"
-      },
-      "node_count": 7,
-      "order": 38
-    },
-    {
-      "name": "🇵🇹 葡萄牙节点",
-      "type": "url-test",
-      "description": "葡萄牙地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(葡萄牙|🇵🇹|PT|里斯本|PT¹|PT²)"
-      },
-      "node_count": 10,
-      "order": 39
-    },
-    {
-      "name": "🇵🇰 巴基斯坦节点",
-      "type": "url-test",
-      "description": "巴基斯坦地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(巴基斯坦|🇵🇰|PK|卡拉奇|拉合尔|PK¹|PK²)"
-      },
-      "node_count": 3,
-      "order": 40
-    },
-    {
-      "name": "🇦🇱 阿尔巴尼亚节点",
-      "type": "url-test",
-      "description": "阿尔巴尼亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(阿尔巴尼亚|🇦🇱|AL|地拉那|AL¹|AL²)"
-      },
-      "node_count": 1,
-      "order": 41
-    },
-    {
-      "name": "🇧🇩 孟加拉节点",
-      "type": "url-test",
-      "description": "孟加拉地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(孟加拉|🇧🇩|BD|达卡|BD¹|BD²)"
-      },
-      "node_count": 3,
-      "order": 42
-    },
-    {
-      "name": "🇸🇨 塞舌尔节点",
-      "type": "url-test",
-      "description": "塞舌尔地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(塞舌尔|🇸🇨|SC|维多利亚|SC¹|SC²)"
-      },
-      "node_count": 2,
-      "order": 43
-    },
-    {
-      "name": "🇸🇦 沙特节点",
-      "type": "url-test",
-      "description": "沙特阿拉伯地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(沙特|🇸🇦|SA|利雅得|吉达|SA¹|SA²)"
-      },
-      "node_count": 2,
-      "order": 44
-    },
-    {
-      "name": "🇧🇬 保加利亚节点",
-      "type": "url-test",
-      "description": "保加利亚地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(保加利亚|🇧🇬|BG|索菲亚|BG¹|BG²)"
-      },
-      "node_count": 1,
-      "order": 45
-    },
-    {
-      "name": "🇻🇪 委内瑞拉节点",
-      "type": "url-test",
-      "description": "委内瑞拉地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(委内瑞拉|🇻🇪|VE|加拉加斯|VE¹|VE²)"
-      },
-      "node_count": 2,
-      "order": 46
-    },
-    {
-      "name": "🇳🇴 挪威节点",
-      "type": "url-test",
-      "description": "挪威地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(挪威|🇳🇴|NO|奥斯陆|NO¹|NO²)"
-      },
-      "node_count": 1,
-      "order": 47
-    },
-    {
-      "name": "🇻🇬 维尔京节点",
-      "type": "url-test",
-      "description": "英属维尔京群岛节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(维尔京|🇻🇬|VG|托托拉|VG¹|VG²)"
-      },
-      "node_count": 2,
-      "order": 48
-    },
-    {
-      "name": "🇬🇹 危地马拉节点",
-      "type": "url-test",
-      "description": "危地马拉地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(危地马拉|🇬🇹|GT|瓜达拉哈拉|GT¹)"
-      },
-      "node_count": 1,
-      "order": 49
-    },
-    {
-      "name": "🇪🇨 厄瓜多尔节点",
-      "type": "url-test",
-      "description": "厄瓜多尔地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(厄瓜多尔|🇪🇨|EC|基多|EC¹)"
-      },
-      "node_count": 1,
-      "order": 50
-    },
-    {
-      "name": "🇰🇿 哈萨克斯坦节点",
-      "type": "url-test",
-      "description": "哈萨克斯坦地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(哈萨克斯坦|🇰🇿|KZ|阿拉木图|KZ¹)"
-      },
-      "node_count": 1,
-      "order": 51
-    },
-    {
-      "name": "🇩🇴 多米尼加节点",
-      "type": "url-test",
-      "description": "多米尼加地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(多米尼加|🇩🇴|DO|圣多明各|DO¹)"
-      },
-      "node_count": 1,
-      "order": 52
-    },
-    {
-      "name": "🇨🇱 智利节点",
-      "type": "url-test",
-      "description": "智利地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(智利|🇨🇱|CL|圣地亚哥|CL¹)"
-      },
-      "node_count": 1,
-      "order": 53
-    },
-    {
-      "name": "🇲🇲 缅甸节点",
-      "type": "url-test",
-      "description": "缅甸地区节点",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": "(缅甸|🇲🇲|MM|仰光|曼德勒|MM¹)"
-      },
-      "node_count": 1,
-      "order": 54
-    },
-    {
-      "name": "🌐 其他节点",
-      "type": "url-test",
-      "description": "未分类节点兜底分组",
-      "config": {
-        "proxies": ["DIRECT"],
-        "url": "https://cp.cloudflare.com/generate_204",
-        "interval": 300,
-        "tolerance": 50,
-        "filter": ""
-      },
-      "node_count": 18,
-      "order": 55
-    },
-    {
-      "name": "🤖 AI服务",
-      "type": "select",
-      "description": "AI服务专用分组",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🇺🇸 美国节点", "🇸🇬 新加坡节点", "🇭🇰 港澳节点", "🇯🇵 日本节点"],
-      "order": 56
-    },
-    {
-      "name": "📺 YouTube",
-      "type": "select",
-      "description": "YouTube视频流",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"],
-      "order": 57
-    },
-    {
-      "name": "🎬 Netflix",
-      "type": "select",
-      "description": "Netflix视频流",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"],
-      "order": 58
-    },
-    {
-      "name": "🏈 Disney+",
-      "type": "select",
-      "description": "Disney+视频流",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"],
-      "order": 59
-    },
-    {
-      "name": "▶️ HBO",
-      "type": "select",
-      "description": "HBO视频流",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🇺🇸 美国节点", "🇭🇰 港澳节点", "🇯🇵 日本节点"],
-      "order": 60
-    },
-    {
-      "name": "🎵 Spotify",
-      "type": "select",
-      "description": "Spotify音乐流",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇺🇸 美国节点"],
-      "order": 61
-    },
-    {
-      "name": "💬 Telegram",
-      "type": "select",
-      "description": "Telegram通讯",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇸🇬 新加坡节点", "🇯🇵 日本节点"],
-      "order": 62
-    },
-    {
-      "name": "🐦 Twitter/X",
-      "type": "select",
-      "description": "Twitter/X社交媒体",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"],
-      "order": 63
-    },
-    {
-      "name": "📘 Facebook",
-      "type": "select",
-      "description": "Facebook社交媒体",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"],
-      "order": 64
-    },
-    {
-      "name": "💻 GitHub",
-      "type": "select",
-      "description": "GitHub代码托管",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇯🇵 日本节点", "🇺🇸 美国节点"],
-      "order": 65
-    },
-    {
-      "name": "🔍 Google",
-      "type": "select",
-      "description": "Google搜索",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇺🇸 美国节点", "🇭🇰 港澳节点", "🇯🇵 日本节点"],
-      "order": 66
-    },
-    {
-      "name": "☁️ iCloud",
-      "type": "select",
-      "description": "Apple iCloud服务",
-      "proxies": ["🎯 全球直连", "🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇺🇸 美国节点"],
-      "order": 67
-    },
-    {
-      "name": "🛒 Amazon",
-      "type": "select",
-      "description": "Amazon购物",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇺🇸 美国节点", "🇯🇵 日本节点", "🇬🇧 英国节点", "🇩🇪 德国节点"],
-      "order": 68
-    },
-    {
-      "name": "🏦 PayPal",
-      "type": "select",
-      "description": "PayPal支付",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇺🇸 美国节点", "🇬🇧 英国节点", "🇯🇵 日本节点"],
-      "order": 69
-    },
-    {
-      "name": "🎮 Steam",
-      "type": "select",
-      "description": "Steam游戏平台",
-      "proxies": ["🎯 全球直连", "🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇺🇸 美国节点"],
-      "order": 70
-    },
-    {
-      "name": "🔗 OneDrive",
-      "type": "select",
-      "description": "Microsoft OneDrive",
-      "proxies": ["🎯 全球直连", "🚀 节点切换", "♻️ 自动选择", "🇺🇸 美国节点", "🇭🇰 港澳节点"],
-      "order": 71
-    },
-    {
-      "name": "🔀 漏网之鱼",
-      "type": "select",
-      "description": "未匹配流量兜底",
-      "proxies": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连"],
-      "order": 72
-    }
-  ],
-  "statistics": {
-    "total_groups": 72,
-    "country_groups": 46,
-    "service_groups": 17,
-    "base_groups": 3,
-    "node_distribution": {
-      "top_countries": [
-        {"country": "美国", "code": "US", "count": 243},
-        {"country": "荷兰", "code": "NL", "count": 147},
-        {"country": "法国", "code": "FR", "count": 137},
-        {"country": "罗马尼亚", "code": "RO", "count": 129},
-        {"country": "日本", "code": "JP", "count": 116},
-        {"country": "英国", "code": "GB", "count": 67},
-        {"country": "韩国", "code": "KR", "count": 66},
-        {"country": "新加坡", "code": "SG", "count": 61},
-        {"country": "德国", "code": "DE", "count": 53},
-        {"country": "香港", "code": "HK", "count": 51}
-      ],
-      "medium_countries": [
-        {"country": "俄罗斯", "code": "RU", "count": 38},
-        {"country": "台湾", "code": "TW", "count": 25},
-        {"country": "泰国", "code": "TH", "count": 19},
-        {"country": "芬兰", "code": "FI", "count": 13},
-        {"country": "爱尔兰", "code": "IE", "count": 12},
-        {"country": "巴西", "code": "BR", "count": 12},
-        {"country": "加拿大", "code": "CA", "count": 9},
-        {"country": "瑞士", "code": "CH", "count": 9},
-        {"country": "卢森堡", "code": "LU", "count": 8},
-        {"country": "阿联酋", "code": "AE", "count": 8}
-      ],
-      "minor_countries": [
-        {"country": "葡萄牙", "code": "PT", "count": 10},
-        {"country": "奥地利", "code": "AT", "count": 6},
-        {"country": "爱沙尼亚", "code": "EE", "count": 7},
-        {"country": "印尼", "code": "ID", "count": 7},
-        {"country": "哥伦比亚", "code": "CO", "count": 6},
-        {"country": "波兰", "code": "PL", "count": 6},
-        {"country": "瑞典", "code": "SE", "count": 6},
-        {"country": "墨西哥", "code": "MX", "count": 6},
-        {"country": "意大利", "code": "IT", "count": 4},
-        {"country": "立陶宛", "code": "LT", "count": 4},
-        {"country": "西班牙", "code": "ES", "count": 4},
-        {"country": "土耳其", "code": "TR", "count": 4},
-        {"country": "巴基斯坦", "code": "PK", "count": 3},
-        {"country": "孟加拉", "code": "BD", "count": 3},
-        {"country": "越南", "code": "VN", "count": 3},
-        {"country": "塞舌尔", "code": "SC", "count": 2},
-        {"country": "沙特", "code": "SA", "count": 2},
-        {"country": "委内瑞拉", "code": "VE", "count": 2},
-        {"country": "维尔京", "code": "VG", "count": 2},
-        {"country": "澳洲", "code": "AU", "count": 2},
-        {"country": "印度", "code": "IN", "count": 3}
-      ],
-      "single_node_countries": [
-        {"country": "捷克", "code": "CZ", "count": 1},
-        {"country": "阿尔巴尼亚", "code": "AL", "count": 1},
-        {"country": "保加利亚", "code": "BG", "count": 1},
-        {"country": "挪威", "code": "NO", "count": 1},
-        {"country": "危地马拉", "code": "GT", "count": 1},
-        {"country": "厄瓜多尔", "code": "EC", "count": 1},
-        {"country": "哈萨克斯坦", "code": "KZ", "count": 1},
-        {"country": "多米尼加", "code": "DO", "count": 1},
-        {"country": "智利", "code": "CL", "count": 1},
-        {"country": "缅甸", "code": "MM", "count": 1}
-      ]
-    },
-    "match_rate": "98.7%",
-    "unmatched_nodes": 18
+  {
+    "name": "♻️ 自动选择",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "",
+    "nodes": []
   },
-  "created_at": "2026-08-19T13:43:00+08:00",
-  "version": "2.0"
-}
+  {
+    "name": "🎯 全球直连",
+    "type": "select",
+    "filter": "",
+    "nodes": ["DIRECT"]
+  },
+  {
+    "name": "🇮🇳 印度节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(印度|🇮🇳|IN¹|IN²|IND|India|孟买|Mumbai)",
+    "node_count": 3,
+    "nodes": []
+  },
+  {
+    "name": "🇺🇸 美国节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(美|🇺🇸|USA|United\\s?States|洛杉矶|Phoenix|凤凰城|圣何塞|硅谷|西雅图|纽约|芝加哥|达拉斯|亚特兰大|JFK|LAX|SFO|SEA|DFW|ORD|IAD|US¹|US²|US⁻)",
+    "node_count": 243,
+    "nodes": []
+  },
+  {
+    "name": "🇳🇱 荷兰节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(荷兰|🇳🇱|NLD|Netherlands|阿姆斯特丹|AMS|NL¹|NL²)",
+    "node_count": 147,
+    "nodes": []
+  },
+  {
+    "name": "🇫🇷 法国节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(法国|🇫🇷|FRA|France|CDG|FR¹|FR²)",
+    "node_count": 137,
+    "nodes": []
+  },
+  {
+    "name": "🇷🇴 罗马尼亚节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(罗马尼亚|🇷🇴|ROU|Romania|Bucharest|RO¹|RO²)",
+    "node_count": 129,
+    "nodes": []
+  },
+  {
+    "name": "🇯🇵 日本节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(日|🇯🇵|JPN|Japan|东京|大阪|川日|泉日|沪日|深日|埼玉|关西|NRT|HND|KIX|TYO|OSA|JP¹|JP²)",
+    "node_count": 116,
+    "nodes": []
+  },
+  {
+    "name": "🇬🇧 英国节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(英|🇬🇧|GBR|Britain|United\\s?Kingdom|伦敦|Manchester|LHR|GB¹|GB²)",
+    "node_count": 67,
+    "nodes": []
+  },
+  {
+    "name": "🇰🇷 韩国节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(韩|🇰🇷|KOR|Korea|首尔|春川|ICN|KR¹|KR²)",
+    "node_count": 66,
+    "nodes": []
+  },
+  {
+    "name": "🇸🇬 新加坡节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(新加坡|🇸🇬|SGA|SIN|狮城|坡|AWS|SG¹|SG²)",
+    "node_count": 61,
+    "nodes": []
+  },
+  {
+    "name": "🇭🇰 港澳节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(香港|🇭🇰|HKG|HKT|Hong\\s?Kong|Kowloon|深港|HK¹|HK²)",
+    "node_count": 51,
+    "nodes": []
+  },
+  {
+    "name": "🇩🇪 德国节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(德国|🇩🇪|DEU|Germany|MUC|DE¹|DE²)",
+    "node_count": 53,
+    "nodes": []
+  },
+  {
+    "name": "🇷🇺 俄罗斯节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(俄罗斯|🇷🇺|RUS|Russia|莫斯科|圣彼得堡|RU¹|RU²)",
+    "node_count": 38,
+    "nodes": []
+  },
+  {
+    "name": "🇹🇼 台湾节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(台|🇹🇼|🇼🇸|TWN|TPE|Taiwan|ROC|新北|彰化|推特专线|Google\\s?play|TW¹)",
+    "node_count": 25,
+    "nodes": []
+  },
+  {
+    "name": "🇹🇭 泰国节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(泰国|🇹🇭|THA|Thailand|曼谷|TH¹|TH²)",
+    "node_count": 19,
+    "nodes": []
+  },
+  {
+    "name": "🇫🇮 芬兰节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(芬兰|🇫🇮|FIN|Finland|赫尔辛基|FI¹|FI²)",
+    "node_count": 13,
+    "nodes": []
+  },
+  {
+    "name": "🇮🇪 爱尔兰节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(爱尔兰|🇮🇪|IRL|Ireland|都柏林|IE¹|IE²)",
+    "node_count": 12,
+    "nodes": []
+  },
+  {
+    "name": "🇧🇷 巴西节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(巴西|🇧🇷|BRA|Brazil|圣保罗|São\\s?Paulo|BR¹|BR²)",
+    "node_count": 12,
+    "nodes": []
+  },
+  {
+    "name": "🇨🇦 加拿大节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(加拿大|🇨🇦|CAN|Canada|温哥华|蒙特利尔|渥太华|YVR|YYZ|CA¹)",
+    "node_count": 9,
+    "nodes": []
+  },
+  {
+    "name": "🇨🇭 瑞士节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(瑞士|🇨🇭|CHE|Switzerland|苏黎世|CH¹)",
+    "node_count": 9,
+    "nodes": []
+  },
+  {
+    "name": "🇱🇺 卢森堡节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(卢森堡|🇱🇺|LUX|Luxembourg|LU¹|LU²)",
+    "node_count": 8,
+    "nodes": []
+  },
+  {
+    "name": "🇦🇪 迪拜节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(迪拜|🇦🇪|UAE|DXB|阿联酋|AE¹)",
+    "node_count": 8,
+    "nodes": []
+  },
+  {
+    "name": "🇵🇱 波兰节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(波兰|🇵🇱|POL|Poland|华沙|PL¹)",
+    "node_count": 6,
+    "nodes": []
+  },
+  {
+    "name": "🇸🇪 瑞典节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(瑞典|🇸🇪|SWE|Sweden|斯德哥尔摩|SE¹)",
+    "node_count": 6,
+    "nodes": []
+  },
+  {
+    "name": "🇲🇽 墨西哥节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(墨西哥|🇲🇽|MEX|Mexico|墨西哥城|MX¹)",
+    "node_count": 6,
+    "nodes": []
+  },
+  {
+    "name": "🇪🇸 西班牙节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(西班牙|🇪🇸|ESP|Spain|马德里|Madrid|ES¹)",
+    "node_count": 4,
+    "nodes": []
+  },
+  {
+    "name": "🇹🇷 土耳其节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(土耳其|🇹🇷|TUR|Turkey|伊斯坦布尔|TR¹)",
+    "node_count": 4,
+    "nodes": []
+  },
+  {
+    "name": "🇻🇳 越南节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(越南|🇻🇳|VNM|Vietnam|河内|胡志明|VN¹|VN²)",
+    "node_count": 3,
+    "nodes": []
+  },
+  {
+    "name": "🇦🇺 澳洲节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(澳|🇦🇺|AUS|Australia|悉尼|墨尔本|Sydney|Melbourne|AU¹)",
+    "node_count": 2,
+    "nodes": []
+  },
+  {
+    "name": "🇨🇿 捷克节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(捷克|🇨🇿|CZE|Czech|布拉格|CZ¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇦🇹 奥地利节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(奥地利|🇦🇹|AT|维也纳|AT¹|AT²)",
+    "node_count": 6,
+    "nodes": []
+  },
+  {
+    "name": "🇮🇹 意大利节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(意大利|🇮🇹|IT|罗马|米兰|IT¹|IT²)",
+    "node_count": 4,
+    "nodes": []
+  },
+  {
+    "name": "🇪🇪 爱沙尼亚节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(爱沙尼亚|🇪🇪|EE|塔林|EE¹|EE²)",
+    "node_count": 7,
+    "nodes": []
+  },
+  {
+    "name": "🇨🇴 哥伦比亚节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(哥伦比亚|🇨🇴|CO|波哥大|CO¹|CO²)",
+    "node_count": 6,
+    "nodes": []
+  },
+  {
+    "name": "🇱🇹 立陶宛节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(立陶宛|🇱🇹|LT|维尔纽斯|LT¹|LT²)",
+    "node_count": 4,
+    "nodes": []
+  },
+  {
+    "name": "🇮🇩 印尼节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(印尼|印度尼西亚|🇮🇩|ID|雅加达|ID¹|ID²)",
+    "node_count": 7,
+    "nodes": []
+  },
+  {
+    "name": "🇵🇹 葡萄牙节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(葡萄牙|🇵🇹|PT|里斯本|PT¹|PT²)",
+    "node_count": 10,
+    "nodes": []
+  },
+  {
+    "name": "🇵🇰 巴基斯坦节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(巴基斯坦|🇵🇰|PK|卡拉奇|拉合尔|PK¹|PK²)",
+    "node_count": 3,
+    "nodes": []
+  },
+  {
+    "name": "🇦🇱 阿尔巴尼亚节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(阿尔巴尼亚|🇦🇱|AL|地拉那|AL¹|AL²)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇧🇩 孟加拉节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(孟加拉|🇧🇩|BD|达卡|BD¹|BD²)",
+    "node_count": 3,
+    "nodes": []
+  },
+  {
+    "name": "🇸🇨 塞舌尔节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(塞舌尔|🇸🇨|SC|维多利亚|SC¹|SC²)",
+    "node_count": 2,
+    "nodes": []
+  },
+  {
+    "name": "🇸🇦 沙特节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(沙特|🇸🇦|SA|利雅得|吉达|SA¹|SA²)",
+    "node_count": 2,
+    "nodes": []
+  },
+  {
+    "name": "🇧🇬 保加利亚节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(保加利亚|🇧🇬|BG|索菲亚|BG¹|BG²)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇻🇪 委内瑞拉节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(委内瑞拉|🇻🇪|VE|加拉加斯|VE¹|VE²)",
+    "node_count": 2,
+    "nodes": []
+  },
+  {
+    "name": "🇳🇴 挪威节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(挪威|🇳🇴|NO|奥斯陆|NO¹|NO²)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇻🇬 维尔京节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(维尔京|🇻🇬|VG|托托拉|VG¹|VG²)",
+    "node_count": 2,
+    "nodes": []
+  },
+  {
+    "name": "🇬🇹 危地马拉节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(危地马拉|🇬🇹|GT|瓜达拉哈拉|GT¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇪🇨 厄瓜多尔节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(厄瓜多尔|🇪🇨|EC|基多|EC¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇰🇿 哈萨克斯坦节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(哈萨克斯坦|🇰🇿|KZ|阿拉木图|KZ¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇩🇴 多米尼加节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(多米尼加|🇩🇴|DO|圣多明各|DO¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇨🇱 智利节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(智利|🇨🇱|CL|圣地亚哥|CL¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🇲🇲 缅甸节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "(缅甸|🇲🇲|MM|仰光|曼德勒|MM¹)",
+    "node_count": 1,
+    "nodes": []
+  },
+  {
+    "name": "🌐 其他节点",
+    "type": "url-test",
+    "url": "https://cp.cloudflare.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+    "filter": "",
+    "node_count": 18,
+    "nodes": []
+  },
+  {
+    "name": "🤖 AI服务",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🇺🇸 美国节点", "🇸🇬 新加坡节点", "🇭🇰 港澳节点", "🇯🇵 日本节点"]
+  },
+  {
+    "name": "📺 YouTube",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "🎬 Netflix",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "🏈 Disney+",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "▶️ HBO",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🇺🇸 美国节点", "🇭🇰 港澳节点", "🇯🇵 日本节点"]
+  },
+  {
+    "name": "🎵 Spotify",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "💬 Telegram",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇸🇬 新加坡节点", "🇯🇵 日本节点"]
+  },
+  {
+    "name": "🐦 Twitter/X",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "📘 Facebook",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇭🇰 港澳节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "💻 GitHub",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇯🇵 日本节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "🔍 Google",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇺🇸 美国节点", "🇭🇰 港澳节点", "🇯🇵 日本节点"]
+  },
+  {
+    "name": "☁️ iCloud",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🎯 全球直连", "🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "🛒 Amazon",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇺🇸 美国节点", "🇯🇵 日本节点", "🇬🇧 英国节点", "🇩🇪 德国节点"]
+  },
+  {
+    "name": "🏦 PayPal",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连", "🇺🇸 美国节点", "🇬🇧 英国节点", "🇯🇵 日本节点"]
+  },
+  {
+    "name": "🎮 Steam",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🎯 全球直连", "🚀 节点切换", "♻️ 自动选择", "🇭🇰 港澳节点", "🇯🇵 日本节点", "🇺🇸 美国节点"]
+  },
+  {
+    "name": "🔗 OneDrive",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🎯 全球直连", "🚀 节点切换", "♻️ 自动选择", "🇺🇸 美国节点", "🇭🇰 港澳节点"]
+  },
+  {
+    "name": "🔀 漏网之鱼",
+    "type": "select",
+    "filter": "",
+    "nodes": ["🚀 节点切换", "♻️ 自动选择", "🎯 全球直连"]
+  }
+]
