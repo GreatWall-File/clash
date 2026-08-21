@@ -160,7 +160,7 @@ proxies:
 
 proxy-groups:
   # ── 主选择组 ──────────────────────────────────────────────
-  - { name: 🚀 节点切换, type: select, proxies: [♻️ 自动选择, 🎯 全球直连,
+  - { name: 🚀 节点切换, type: select, proxies: [♻️ 自动选择, 🎯 全球直连, 🌥️ CF优选,
     🇭🇰 港澳节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点,
     🇹🇼 台湾节点, 🇺🇸 美国节点, 🇩🇪 德国节点, 🇬🇧 英国节点,
     🇫🇷 法国节点, 🇳🇱 荷兰节点, 🇨🇦 加拿大节点,
@@ -485,6 +485,13 @@ proxy-groups:
       proxies: [DIRECT],
       url: https://cp.cloudflare.com/generate_204, interval: 300, tolerance: 50,
       filter: '(缅甸|🇲🇲|MM|仰光|曼德勒|MM¹)' }
+
+  
+  # ── CF 联通优选节点 ─────────────────────────────────────────
+  - { name: 🌥️ CF优选, type: url-test,
+      proxies: [DIRECT],
+      url: https://cp.cloudflare.com/generate_204, interval: 300, tolerance: 50,
+      filter: '(CF|联通|cloudflare)' }
 
   - { name: 🌐 其他节点, type: url-test,
       proxies: [DIRECT],
